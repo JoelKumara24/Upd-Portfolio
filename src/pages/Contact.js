@@ -22,8 +22,8 @@ function Contact() {
         </p>
 
         <div className="social-links">
-          <a href="https://www.linkedin.com/in/joel-kumara-b83105282/" target="_blank" className="social-button linkedin">LinkedIn</a>
-          <a href="https://www.instagram.com/joelkumara/" target="_blank" className="social-button instagram">Instagram</a>
+          <a href="https://www.linkedin.com/in/joel-kumara-b83105282/" target="_blank" rel="noreferrer noopener" className="social-button linkedin">LinkedIn</a>
+          <a href="https://www.instagram.com/joelkumara/" target="_blank" rel="noreferrer noopener" className="social-button instagram">Instagram</a>
         </div>
       </div>
     </div>
