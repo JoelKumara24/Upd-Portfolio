@@ -1,0 +1,86 @@
+/* Remove scrollbars and enforce full-screen display */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Full-screen container with animated gradient */
+.home-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(-45deg, #121212, #2a2a2a, #555555);
+    background-size: 400% 400%;
+    animation: gradientBG 4s ease-in-out infinite;
+    overflow: hidden; /* Ensure no inner content causes scrolling */
+}
+
+
+/* Background animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Content container with text blending */
+.content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-family: "Arial", sans-serif;
+    mix-blend-mode: difference; /* This makes the text change color dynamically */
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

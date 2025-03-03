@@ -1,0 +1,127 @@
+/* Full-screen background with animated gradient */
+.contact-container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-45deg, #121212, #2a2a2a, #555555);
+    background-size: 400% 400%;
+    animation: gradientBG 6s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fixed Header - Keeps Title and Back Button Visible */
+.contact-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.8); /* Semi-transparent dark */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    padding: 15px 0;
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+/* Title Styling */
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+}
+
+/* Back Button */
+.back-button {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Contact Content */
+.contact-content {
+    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    font-family: "Arial", sans-serif;
+    width: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 80px; /* Ensures content is below the fixed header */
+}
+
+/* Contact Details */
+.contact-detail {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* Contact Links */
+.contact-link {
+    text-decoration: none;
+    color: #f3f3f3;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #00aced; /* Light blue hover effect */
+}
+
+/* Social Media Buttons */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.linkedin {
+    background: #0077b5;
+    color: white;
+}
+
+.instagram {
+    background: #e4405f;
+    color: white;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
