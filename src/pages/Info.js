@@ -15,7 +15,7 @@ function Info() {
       <div className="info-content">
         {/* Introduction */}
         <section className="about-section">
-          <h2>👋 Hi, I'm [Your Name]</h2>
+          <h2>👋 Hi, I'm Joel Kumara</h2>
           <p>
             I'm a passionate **Software Engineer** specializing in **React, .NET, and Game Development**. 
             I enjoy building **modern, scalable applications** and continuously exploring new technologies.
