@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+.project-detail-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: #0d0d0d;
+  color: #f0f0f0;
+  font-family: 'Space Grotesk', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+}
+
+.detail-content {
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  text-align: right;
+  animation: fadeInPage 0.8s ease-out;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.back-button {
+  color: #ccc;
+  text-decoration: none;
+  border: 1px solid #444;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.image-gallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.project-image {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 240px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #bbb;
+  margin-bottom: 2rem;
+}
+
+.github-link {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #222;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.github-link:hover {
+  background: #fff;
+  color: #000;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.zoomed-image {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  z-index: 0;
+  opacity: 0.76;
+  pointer-events: none;
+  background-image: url('../assets/grain.png');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: moveGrain 10s linear infinite;
+  mix-blend-mode: soft-light;
+  filter: blur(0.8px);
+}
+
+@keyframes moveGrain {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(-20px, 35px); }
+  50% { transform: translate(40px, -10px); }
+  75% { transform: translate(-15px, 50px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔥 Responsive for Mobile & Tablet */
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .project-detail-container {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1.5rem;
+    align-items: flex-start;
+  }
+
+  .detail-content {
+    text-align: left;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .back-button {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .image-gallery {
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .project-image {
+    width: 200px;
+    height: 130px;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+
+  .github-link {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .zoomed-image {
+    max-width: 95%;
+    max-height: 70%;
+  }
+
+  .close-btn {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
+}

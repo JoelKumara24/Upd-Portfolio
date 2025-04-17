@@ -1,117 +1,187 @@
-/* === Full-screen Background with Animated Gradient === */
-.info-container {
-    width: 100vw;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Layout Container */
+.info-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Left Column */
+.info-left-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.role {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 1rem 0;
+}
+
+.nav-links a {
+  color: #d3d3d3;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* Right Column (Bio Section) */
+.info-right-column {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 2rem 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  animation: fadeInBio 1s ease-out 0.8s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  scrollbar-width: none; /* Firefox */
+}
+
+.info-right-column::-webkit-scrollbar {
+  display: none;
+}
+
+.info-about-bio {
+  max-width: 90%;
+  text-align: right;
+  white-space: pre-line;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  color: #aaa;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Bio Fade In */
+@keyframes fadeInBio {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional Page Fade */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grain Overlay (Optional Visual Effect) */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  z-index: 0;
+  opacity: 0.76;
+  pointer-events: none;
+  background-image: url('../assets/grain.png');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: moveGrain 10s linear infinite;
+  mix-blend-mode: soft-light;
+  filter: blur(0.8px);
+}
+
+@keyframes moveGrain {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(-20px, 35px); }
+  50% { transform: translate(40px, -10px); }
+  75% { transform: translate(-15px, 50px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* 🔥 Mobile & Tablet Optimization */
+@media (max-width: 768px) {
+  .info-layout {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
     height: auto;
-    background: linear-gradient(-45deg, #121212, #2a2a2a, #555555);
-    background-size: 400% 400%;
-    animation: gradientBG 6s ease infinite;
-    color: white;
-    font-family: "Arial", sans-serif;
-    padding: 50px;
-    text-align: center;
-}
-
-/* === Gradient Background Animation === */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* === Sticky Header - Title & Back Button === */
-.info-header {
-    position: fixed;
-    top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    text-align: center;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-}
-
-.info-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-}
-
-/* === Back Button === */
-.back-button {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
-}
-
-/* === Scrollable Content === */
-.info-content {
-    width: 60%;
-    max-height: 100vh;
-    margin-top: 80px;
-    padding: 20px;
     overflow-y: auto;
-    scrollbar-width: none; /* Hide scrollbar (Firefox) */
-    -ms-overflow-style: none; /* Hide scrollbar (IE/Edge) */
-}
+  }
 
-/* Hide scrollbar for WebKit browsers */
-.info-content::-webkit-scrollbar {
-    display: none;
-}
+  .info-left-column,
+  .info-right-column {
+    width: 100%;
+    padding: 0;
+  }
 
-/* === About Sections === */
-.about-section {
-    margin-bottom: 40px;
-}
+  .info-left-column {
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
 
-.about-section h2 {
-    font-size: 2rem;
-    color: #f3f3f3;
-    margin-bottom: 10px;
-}
+  .info-right-column {
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
 
-.about-section p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-align: justify;
-}
+  .info-about-bio {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    word-break: break-word;
+  }
 
-/* === Skills List === */
-.skills-list {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
+  .name {
+    font-size: 2.4rem;
+  }
 
-.skills-list span {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.skills-list span:hover {
-    transform: scale(1.1);
+  .nav-links a {
+    font-size: 1rem;
+  }
 }

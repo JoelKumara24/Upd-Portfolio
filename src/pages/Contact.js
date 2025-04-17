@@ -1,31 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
-import "./Contact.css"; // Import the CSS file
+import { Link } from "react-router-dom";
+import "./Contact.css";
 
 function Contact() {
   return (
-    <div className="contact-container">
-      {/* Fixed Header with Title and Back Button */}
-      <div className="contact-header">
-        <h1 className="contact-title">Contact Me</h1>
-        <Link to="/" className="back-button">Back to Home</Link>
+    <div className="contact-layout">
+      <div className="grain-overlay"></div>
+
+      <div className="contact-left-column">
+        <h1 className="name">Joel Kumara</h1>
+        <p className="role">Fullstack Developer</p>
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
+          <li><Link to="/info">Info</Link></li>
+        </ul>
       </div>
 
-      {/* Contact Content */}
-      <div className="contact-content">
-        <p className="contact-detail">
-          📧 Email: <a href="mailto:joelkumara24@gmail.com" className="contact-link">joelkumara24@gmail.com</a>
-        </p>
-        
-        <p className="contact-detail">
-          📞 Phone: <a href="tel:+947678519" className="contact-link">+947678519</a>
-        </p>
+      <div className="contact-right-column">
+  <p className="contact-bio">
+    Available for collaborations<br />
+    or just a friendly hello.<br />
+    <br />
+    <strong>Email:</strong> <a href="mailto:joelkumara24@gmail.com">joelkumara24@gmail.com</a><br />
+    <strong>Phone:</strong> <a href="tel:+947678519">+393518533841</a><br />
+    <br />
+    <a href="https://www.linkedin.com/in/joel-kumara-b83105282/" target="_blank" rel="noreferrer">LinkedIn</a> •{" "}
+    <a href="https://www.instagram.com/joelkumara/" target="_blank" rel="noreferrer">Instagram</a><br />
+    <a
+    href="/Joel_Kumara.pdf"
+    download
+    className="cv-download-button"
+  >
+    Download CV
+  </a>
+  </p>
 
-        <div className="social-links">
-          <a href="https://www.linkedin.com/in/joel-kumara-b83105282/" target="_blank" rel="noreferrer noopener" className="social-button linkedin">LinkedIn</a>
-          <a href="https://www.instagram.com/joelkumara/" target="_blank" rel="noreferrer noopener" className="social-button instagram">Instagram</a>
-        </div>
-      </div>
+  
+</div>
+
     </div>
   );
 }

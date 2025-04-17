@@ -1,86 +1,169 @@
-/* Remove scrollbars and enforce full-screen display */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
 body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrolling */
-    width: 100vw;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d;
+  color: #d3d3d3;
+  font-family: 'Space Grotesk', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-/* Full-screen container with animated gradient */
-.home-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(-45deg, #121212, #2a2a2a, #555555);
-    background-size: 400% 400%;
-    animation: gradientBG 4s ease-in-out infinite;
-    overflow: hidden; /* Ensure no inner content causes scrolling */
+.keita-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+  animation: fadeInPage 1s ease-in;
 }
 
-
-/* Background animation */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* LEFT SIDE */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 40%;
+  z-index: 1;
 }
 
-/* Content container with text blending */
-.content {
-    position: relative;
-    z-index: 2;
-    color: white;
-    font-family: "Arial", sans-serif;
-    mix-blend-mode: difference; /* This makes the text change color dynamically */
+.name {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
-/* Title Styling */
-.title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+.role {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
 }
 
-/* Navigation Links */
 .nav-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links li {
-    display: inline;
+  margin: 1rem 0;
 }
 
 .nav-links a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
+  color: #d3d3d3;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Hover effect */
 .nav-links a:hover {
-    background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.right-column {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    max-width: 30%;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: right;
+    color: #aaa;
+  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    animation: fadeInText 1s ease-out 0.8s forwards;
+    will-change: transform, opacity;
+    z-index: 2;
+  }
+  
+
+
+/* Fade-In Animations */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background Grain Animation */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  z-index: 0;
+  opacity: 0.76;
+  pointer-events: none;
+  background-image: url('../assets/grain.png');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: moveGrain 10s linear infinite;
+  mix-blend-mode: soft-light;
+  filter: blur(0.8px);
+}
+
+@keyframes moveGrain {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(-20px, 35px); }
+  50% { transform: translate(40px, -10px); }
+  75% { transform: translate(-15px, 50px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* 🔥 Responsive for Mobile & Tablet */
+@media (max-width: 768px) {
+  .keita-layout {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 2rem;
+  }
+
+  .left-column {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .right-column {
+    position: static;
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
 }

@@ -1,185 +1,169 @@
-/* === Projects Page Styling === */
-.projects-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(-45deg, #121212, #2a2a2a, #555555);
-    background-size: 400% 400%;
-    animation: gradientBG 6s ease infinite;
-    color: white;
-    font-family: "Arial", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
 }
 
-/* === Gradient Background Animation === */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* === Layout Container === */
+.projects-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  box-sizing: border-box;
 }
 
-/* === Project Details Page - Now Scrollable === */
-.project-detail-container {
-    width: 100vw;
-    height: 100vh;
-    background: #666666; /* Static Ash Background */
-    color: black;
-    font-family: "Arial", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto; /* Enable scrolling */
-    animation: fadeIn 0.8s ease-in; /* Fade-in Animation */
+/* === Left Column === */
+.projects-left-column {
+  width: 50%;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  z-index: 1;
 }
 
-/* === Fade-in Animation on Load === */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.name {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
-/* === Sticky Header - Keeps Title & Back Button Visible === */
-.project-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
-    padding: 15px 0;
-    text-align: center;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
+.role {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
 }
 
-/* === Project Title === */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 1rem 0;
+}
+
+.nav-links a {
+  color: #d3d3d3;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* Right Side */
+.projects-right-column {
+  width: 50%;
+  height: 100%;
+  padding: 2rem 3rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; /* This ensures full stretch */
+  overflow: hidden; /* So only .project-list scrolls */
+}
+
+.project-list {
+  flex: 1;
+  overflow-y: scroll; /* Keep scrolling */
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-end;     /* 👈 Align content to the right */
+  padding-right: 0.5rem;
+  scrollbar-width: none;     /* Firefox */
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar in Chrome, Edge, Safari */
+.project-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.project-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* === Project Entries === */
+.project-entry {
+  text-align: right;
+}
+
 .project-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    margin: 0;
+  font-size: 2.5rem;
+  color: #f0f0f0;
+  margin: 0;
 }
 
-/* === Back Button in Header === */
-.back-button {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
+.project-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.4rem;
 }
 
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+.project-entry-link {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* === Scrollable Project Content === */
-.project-content {
+.project-entry-link:hover .project-title {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* === Optional: Grain Background === */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  z-index: 0;
+  opacity: 0.76;
+  pointer-events: none;
+  background-image: url('../assets/grain.png');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: moveGrain 10s linear infinite;
+  mix-blend-mode: soft-light;
+  filter: blur(0.8px);
+}
+
+@keyframes moveGrain {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(-20px, 35px); }
+  50% { transform: translate(40px, -10px); }
+  75% { transform: translate(-15px, 50px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@media (max-width: 768px) {
+  .projects-left-column {
+    width: 40%;
+  }
+
+  .projects-right-column {
     width: 60%;
-    padding: 100px 20px 40px; /* Add space for fixed header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* === Project Image === */
-.project-image {
-    width: 50%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.project-image:hover {
-    transform: scale(1.05);
-}
-
-/* === Project Description === */
-.project-description {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
-}
-
-/* === GitHub Link === */
-.github-link {
-    display: inline-block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    background: #24292e; /* GitHub Dark Theme */
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin-bottom: 20px;
-}
-
-.github-link:hover {
-    background: #444c56;
-    transform: scale(1.05);
-}
-
-/* === Project List === */
-.projects-list {
-    list-style: none;
-    padding: 0;
-}
-
-.projects-list li {
-    margin: 10px 0;
-}
-
-/* === Project Links === */
-.project-link {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.project-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-/* === Back Buttons (Projects Page) === */
-.back-button-details {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: black;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.back-button-details:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+  }
 }
