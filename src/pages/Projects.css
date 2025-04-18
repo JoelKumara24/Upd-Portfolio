@@ -159,11 +159,50 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  .projects-layout {
+    flex-direction: column;
+  }
+
   .projects-left-column {
-    width: 40%;
+    width: 100%;
+    padding: 1.5rem;
+    align-items: flex-start;
   }
 
   .projects-right-column {
-    width: 60%;
+    width: 100%;
+    padding: 1.5rem;
+    padding-top: 0;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  .project-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .project-list {
+    gap: 2rem;
+    padding-top: 1rem;
+    align-items: flex-start;
+  }
+
+  .project-entry {
+    text-align: left;
   }
 }
