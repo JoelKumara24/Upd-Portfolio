@@ -9,7 +9,8 @@ const projects = [
   { title: "Edu-Tourism Platform", subtitle: "Aug 2024 / React + Spring Boot + AWS" },
   { title: "E-commerce Platform", subtitle: "March 2025 / React + Spring Boot + AWS" },
   { title: "Auth-Logger Blueprint", subtitle: "March 2025 / Spring Boot + Postgre" },
-  { title: "Fitness-Tracker", subtitle: "April 2025 / Next.js + Vercel" }
+  { title: "Fitness-Tracker", subtitle: "April 2025 / Next.js + Vercel" },
+  { title: "PHU-Site", subtitle: "May 2025 / React+ Node + Render" }
 ];
 
 function Projects() {

@@ -16,6 +16,10 @@ import FT5 from "../assets/5.png";
 import FT6 from "../assets/6.png";
 import FT7 from "../assets/7.png";
 import FT8 from "../assets/8.png";
+import PHU1 from "../assets/PHU-1.png";
+import PHU2 from "../assets/PHU-2.png";
+import PHU3 from "../assets/PHU-3.png";
+import PHU4 from "../assets/PHU-4.png";
 
 function ProjectDetail() {
   const { id } = useParams();
@@ -71,6 +75,13 @@ function ProjectDetail() {
         "A full-featured fitness tracking app built using Next.js, MongoDB, and deployed on Vercel. Users can log workouts, track progress photos, and monitor weight over time through an elegant, responsive dashboard and slideshow interface.",
       images: [FT1, FT2, FT3, FT4, FT5, FT6, FT7, FT8],
       github: "https://github.com/JoelKumara24/Next.js-App",
+    },
+    8: {
+      title: "PHU-Site",
+      description:
+        "Progressive House Universe (PHU) is a dynamic music discovery platform dedicated to the underground progressive house scene. It features curated releases, artist showcases, event listings, and a sleek audio player — all powered by a custom admin dashboard for seamless content management. Built with React, Node.js, and MongoDB, and deployed on Hostinger and Render.",
+      images: [PHU1,PHU2,PHU3,PHU4],
+      github: "https://github.com/JoelKumara24/Progressive-House-Universe",
     },
     
   };
